@@ -2,15 +2,18 @@ import { useQuery } from '@apollo/client';
 import { useEffect, useState } from 'react';
 import { GET_RESTAURANTS } from '../../queries/Restourants';
 import Query from '../../utils/Query';
+import './MenuPage.scss'
 
 function MainPage() {
 
-  const { loading, error, data } = useQuery(GET_RESTAURANTS);
+  const [visible, setVisible] = useState(false);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
+  // const { loading, error, data } = useQuery(GET_RESTAURANTS);
 
-  console.log(data);
+  // if (loading) return <p>Loading...</p>;
+  // if (error) return <p>Error : {error.message}</p>;
+  //
+  // console.log(data);
 
   // const [datas, setDatas] = useState();
 
@@ -26,7 +29,18 @@ function MainPage() {
   return (
     <div>
 
-      <Query query={GET_RESTAURANTS}>
+      <button onClick={() => setVisible(prev => !prev)}>Menu</button>
+
+      <ul className={`menu ${visible ? 'menu-visible' : ''}`}>
+        <li>kndsfkjlsd</li>
+        <li>kndsfkjlsd</li>
+        <li>kndsfkjlsd</li>
+        <li>kndsfkjlsd</li>
+        <li>kndsfkjlsd</li>
+        <li>kndsfkjlsd</li>
+      </ul>
+
+      {/*<Query query={GET_RESTAURANTS}>
         {({ data: { restaurants: { data } } }) => (
           <div>
             {
@@ -36,7 +50,7 @@ function MainPage() {
             }
           </div>
         )}
-      </Query>
+      </Query>*/}
 
       {/*{
         datas?.data.map(({ id, attributes }) => (

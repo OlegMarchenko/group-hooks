@@ -1,0 +1,7 @@
+.menu {
+  opacity: 0;
+  transition: .3s all;
+  &-visible {
+    opacity: 1;
+  }
+}
